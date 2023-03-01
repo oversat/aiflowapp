@@ -7,22 +7,24 @@ function Landing() {
   const { currentUser, profileExists, logOut, logIn, signUp, createProfile } =
     useAuth();
 
-  const AuthedState = () => {
+  const Authed_State = () => {
     return (
       <div>
-        <div>Logged in as: {currentUser?.addr ?? "No Address"}</div>
+        <div>
+          <center>User: {currentUser?.addr ?? "No Address"}</center></div>
         <button onClick={logOut}>Log Out</button>
 
         <h2>Controls</h2>
-        <button onClick={createProfile}>Create Profile</button>
+        // change createProfile to mintNFT 
+        <button onClick={createProfile}>Mint Digital Collectible</button>
       </div>
     );
   };
 
-  const UnauthenticatedState = () => {
+  const Unauth_State = () => {
     return (
       <div>
-        <button onClick={logIn}>Log In</button>
+        <button onClick={logIn}>Log fuck In</button>
         <button onClick={signUp}>Sign Up</button>
       </div>
     );
@@ -45,15 +47,12 @@ function Landing() {
       <div className="grid">
         <div>
           <h1>
-            Welcome to <Link href="https://docs.onflow.org">Web3</Link>
+            <center> Mint NFT? </center>
           </h1>
-          <p>
-            <Messages />
-          </p>
-          {profileExists && <Profile />}
+         
         </div>
         <div>
-          {currentUser?.loggedIn ? <AuthedState /> : <UnauthenticatedState />}
+          {currentUser?.loggedIn ? <Authed_State /> : <Unauth_State />}
         </div>
       </div>
     </div>

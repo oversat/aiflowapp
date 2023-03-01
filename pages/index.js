@@ -1,6 +1,12 @@
 import Head from "next/head";
 import Landing from "../components/Landing";
 import Transaction from "../components/Transaction";
+// in the browser
+import * as fcl from "@onflow/fcl"
+
+fcl.config({
+  "discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn", // Endpoint set to Testnet
+})
 
 export default function Home() {
   return (
@@ -13,6 +19,8 @@ export default function Home() {
 
       <main>
         <Transaction />
+        <button onClick={fcl.authenticate}>Login</button> 
+
         <div className="grid">
           <Landing />
         </div>
